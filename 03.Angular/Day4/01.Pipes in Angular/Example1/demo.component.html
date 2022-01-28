@@ -1,0 +1,17 @@
+<h3>Data transformation using pipes in Angular</h3>
+<hr/>
+
+<div>
+  <h3>Student Details</h3>
+
+  Student Id  :  {{sid}}  <br/>
+  Student Name  :  {{sname | titlecase   }}  <br/>
+  Student Email  :  {{email | lowercase  }}  <br/>
+  Course Name  :  {{course | uppercase }} <br/>
+  Course Fee :  {{fee | currency : "INR" }}  <br/>
+  Join Date  :  {{joinDate | date : "dd-MMMM-yyyy"  }}  <br/>
+  Join Date  :  {{joinDate | date : "MM/dd/yyyy"  }}  <br/>
+
+
+  </div>
+

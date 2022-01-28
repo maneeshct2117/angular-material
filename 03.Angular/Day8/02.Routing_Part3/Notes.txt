@@ -1,0 +1,206 @@
+1. Lazy loading modules in Routing
+2. Nested Routes
+3. Pre-fetching data using resolvers
+
+
+
+
+Lazy loading modules in Routing
+~~~~~~~~~~~~~~~~~~~~~~~~~
+>	ng  g  m  admin		
+		/admin/admin.module.ts
+		
+		
+>  ng  g   m   admin   --route  admin  --module app.module
+
+			--->   admin module
+			--->   admin routing module
+			--->   admin component			
+			--->  Register and Generate separate route --- with lazy loading option in  app.routing.module
+			
+				 { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+				 
+				 
+		Note:   In the above lazy loading statement,  admin module is load in the memory when we get the request for admin route. 		 
+
+	
+		CREATE src/app/admin/admin-routing.module.ts (339 bytes)
+		CREATE src/app/admin/admin.module.ts (350 bytes)
+		CREATE src/app/admin/admin.component.html (20 bytes)
+		CREATE src/app/admin/admin.component.spec.ts (619 bytes)
+		CREATE src/app/admin/admin.component.ts (271 bytes)
+		CREATE src/app/admin/admin.component.css (0 bytes)
+		UPDATE src/app/app-routing.module.ts (1214 bytes)
+
+----------------------------------------------------------------------------------------------------------------
+
+Admin.Routing.Module
+
+		const routes: Routes = [
+		  { path: '', component: AdminComponent },
+		  { path: 'projects', component: ProjectsComponent },
+		  { path: 'branches', component: BranchesComponent }
+		];
+
+
+Create hyperlink for child routes
+
+
+		  <a [routerLink]="['/admin']">Admin</a>  
+		  <a [routerLink]="['/admin/projects']">Projects</a>  
+		  <a [routerLink]="['/admin/branches']">Branches</a>  
+		  
+-----------------------------------------------------------------------------------------------------		  
+
+
+Nested Routes 
+~~~~~~~~~~~~~
+
+
+1.  Create child routes as children in route configuation 
+
+		const routes: Routes = [
+		  { path: '', component: AdminComponent,
+		  children: [
+			{path: '', redirectTo: 'projects', pathMatch : "full"},
+			{ path: 'projects', component: ProjectsComponent },
+			{ path: 'branches', component: BranchesComponent }
+		  ]
+		}];
+		
+		
+2.  Create the hyperlinks inside the admin component
+
+
+	<a [routerLink]="['projects']">Projects</a>  |
+	<a [routerLink]="['branches']">Branches</a>
+
+
+
+3.  Add separate router-outlet  in admin component
+
+		<router-outlet></router-outlet>
+
+----------------------------------------------------------------------------------------------------------
+
+Pre-fetching data using resolvers
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+--> Fetching the required data for the component before component is render in the browser. 
+
+-->	Order of Processing:
+			a.  Request come to the route
+			b.  Fetch the data from db	---- done by resolver
+			c.  Then component render / processed
+		
+		
+Steps to implement
+~~~~~~~~~~~~~~~~
+1.   Create Route Resolver service that returns required data.
+
+		export class EmpListResolveService implements Resolve<any[]>
+		{
+			....
+			resolve(route: ActivatedRouteSnapshot,
+						state: RouterStateSnapshot): Observable<any[]> {
+				return this.dataService.getData();
+				}
+		}
+
+2.   Apply route resolve  service on the route 
+
+		 { path :  "Emps2", component: Emps2Component, resolve: {emps: EmpListResolveService}  },
+
+3.   Component can just read the data from the route data using ActivatedRoute
+
+	
+	this.emps=this.route.snapshot.data['emps'];
+	
+		
+		
+		
+		
+
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+Deploying angular applications on web servers
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+What we need to deploy?
+
+1.   deploy compiled *.js  files	(main.js)		----		all programming items (components, modules, pipes, .....)
+2.   [assets] 
+3.   index.html
+4.   supported *.js		
+
+
+
+
+How to generate production builds?
+	
+	>		ng build --prod		
+	>		ng build
+	
+	
+The above angular cli command will generate deployable files in a separate folder called "dist".	
+	
+	D:/RouteDemoApp/my-project> 
+				[src]
+				[dist]
+					[my-project]
+	
+	
+	
+	
+	
+	
+	
+Web Servers
+~~~~~~~~~~~~	
+
+---> copy  [my-project]  folder (under dist folder) into physical location of web server.
+--> You rename the folder if required. 
+ 
+	
+	1. IIS
+			Physical Location : C:\inetpub\wwwroot 
+			Virtual Address:		http://localhost
+			
+	2. Tomcat 
+	
+	3. XAAMP
+			Physical Location : C:\xampp\htdocs
+			Virtual Address:		http://localhost:1234\	
+	
+	
+
+
+Hint:
+--> Update <base> tag in index.html 
+
+			  <base href="/">		---  default
+			  <base href="">			---  we need to update 
+
+
+
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

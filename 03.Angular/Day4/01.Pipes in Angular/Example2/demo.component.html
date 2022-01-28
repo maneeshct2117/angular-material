@@ -1,0 +1,22 @@
+<h3>Fetching number of records using slice pipe</h3>
+<hr/>
+
+<input type="button"  value="Next Items >>"  (click)="nextItems_click()" />
+<br/><br/>
+ <table width="500"  cellspacing="0"  cellpadding="3"  border="2">
+  <tr>
+    <th>Emp Number</th>
+    <th>Emp Name</th>
+    <th>Emp Job</th>
+    <th>Emp Salary</th>
+    <th>Emp Deptno</th>
+  </tr>
+
+  <tr *ngFor="let item of empData | slice : start : end">
+      <td>{{item.empno}}</td>
+      <td>{{item.ename | titlecase}}</td>
+      <td>{{item.job | uppercase}}</td>
+      <td>{{item.sal | currency}}</td>
+      <td>{{item.deptno}}</td>
+  </tr>
+</table>

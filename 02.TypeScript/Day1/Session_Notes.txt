@@ -1,0 +1,229 @@
+TypeScript Language
+~~~~~~~~~~~~~~~~~~~
+
+What is TypeScript?
+
+--> New language from Microsoft
+--> It was designed by Anders Hejlsberg (designer of C#) at Microsoft. 
+--> Superset of JavaScript
+--> Powerful Programming features
+
+
+
+Angular JS 			---		2012			---			JavaScript
+Angular2....13		---		2016			---			TypeScript
+
+	
+C	---		C++, Java, C#, JavaScript, TypeScript 	
+
+
+Issue JavaScript
+
+
+var, let
+
+
+
+JavaScript
+var  x = 10;
+x = "Hello World";
+x = true;
+x = { sid  : 1025, sname  : "Scott"}
+
+
+
+var x:number = 10;
+x = "Hello World"; // error
+x = true;  // error
+x = { sid  : 1025, sname  : "Scott"}  // error
+
+
+
+variables 	----	arrays, functions, objects 	
+
+
+
+Why TypeScript?  
+
+The popular JavaScript framework Angular 2.0 is written in TypeScript. 
+TypeScript is a strongly typed, object oriented, compiled language. 
+Pure object oriented with classes, interfaces and strictly typed like C#  / Java.
+
+
+Benefits
+~~~~~~~
+Strongly Typed
+Compilation
+Object Oriented
+Comfortable for all developers
+Open Source
+
+--------------------------------------------------------------------------------------------
+
+Environment Setup
+~~~~~~~~~~~~~~~~
+1. Install  VS Code  			---  	Editor
+2. Install NodeJS  (npm)	---		Support Environment
+3. Install TypeScript			---		TypeScript Compiler,Libs		
+
+
+npm 	install 	-i   typescript
+npm 	install 	-i   @angular/cli
+
+ng  version
+----------------------------------------------------------------------------------
+
+
+
+1.   Create   Demo1.ts
+2.   Compile 	
+		>		tsc    Demo1.ts		----			Demo1.js
+		>		node   Demo1.js
+		
+		
+		
+
+
+Write in *.html
+~~~~~~~~~~~
+	<script src="Demo1.js">
+	</script>
+
+
+
+
+
+
+Types in TypeScript
+~~~~~~~~~~~~~~~~
+let uname:string  =  "Scott";
+let age:number  =  25;
+let isValidUser:boolean = true;
+
+
+Arrays:			let  unames:string[]  =  [];
+
+Function :		
+			function  showMessage(message:string):void
+			function  sum(x:number,  y:number):number
+			
+			
+			
+			
+				
+
+Functions in TypeScript
+~~~~~~~~~~~~~~~~~~~~
+
+
+JS	-		function   fn_name(param1, param2,....)
+
+TS	-		function   fn_name(param1:type,  param2:type, ....)  :  return_type
+
+
+---------------------------------------------------------------------------------------
+
+
+
+  
+	arr1 =  [1,2,3,4,5];
+	
+	arr1.reverse();
+	arr1.push(6);
+	arr1.pop();
+	
+	
+
+	arr2  =   arr1.map(  callback  )
+
+
+	modify the array without change original array
+	returns the new array
+	call a function on each element of the array
+	
+
+
+	ar.map(  Math.sqrt  );
+
+
+
+	
+
+	string method
+	array methods
+	date
+	math
+	
+	---------------------------------------------------------------------------
+	
+	
+
+// Array destructuring
+let arr:number[] = [11, 22, 33];
+let [x, y] = arr;
+
+--> Extract the elements from array and store in individual variables. 
+---------------------------------------------------------------------------------------------------
+
+User defined types in TypeScript
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. Arrays
+2. Classes
+3. Interfaces
+4. Unions
+5. Enumerations
+6. Tuples
+
+
+
+Unions
+~~~~~~
+
+--> A variable which can have multiple types of values. 
+--> It can combine one or two different types of data (i.e., number, string, etc.) in a single type, which is called a union type. 
+--> Union types are a powerful way to express a variable with multiple types. 
+--> Two or more data types can be combined by using the pipe ('|') symbol between the types.
+			
+			
+let rating: number|string;  
+rating = 4;  
+rating = "Excellent";  
+-----------------------------------------------------------------------
+
+
+Enums
+~~~~~~
+--> Enums stands for Enumerations.
+--> Enums are a new data type supported in TypeScript.
+--> used to define the set of named constants.
+--> By default, enums have index values (0, 1, 2, 3, etc.). 
+--> We can define the enums by using the enum keyword.
+
+Eg:	   enum Color {RED, BLUE, WHITE}  
+
+
+
+Tuples in TypeScript
+~~~~~~~~~~~~~~~~
+--> A Tuple is an array which store multiple fields belong to different data types. 
+--> It is similar to the structures in the C programming language.
+--> A tuple is a data type which can be used like any other variables. 
+--> It represents the heterogeneous collection of values.
+--> The order of elements in a tuple is important.
+
+
+var mytuple = [1020, "Printer"]; 
+(or)
+var mytuple:[number, string] = [1020, "Printer"];
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+ 

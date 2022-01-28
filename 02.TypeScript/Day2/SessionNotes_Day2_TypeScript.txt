@@ -1,0 +1,62 @@
+Object Oriented Programming in TypeScript
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+--> Class Name  ----   Pascal Casing
+
+
+	Student
+	StudentIfno
+	Employee
+	EmployeeAddress
+	
+	Component
+	HttpClient
+	PipeTransform
+	
+	
+	
+Data members  / fields 
+~~~~~~~~~~~~~~~~~~~~
+
+let empno:number = 54654;	// wrong , error
+
+let and var keywords --- not allowed
+
+
+Access Specifier:		public, private, protected
+
+default ---  public 
+
+
+Member Functions / Methods
+
+
+	function showDetails():void      // error	
+	function keyword --- not allowed  	
+	Access Specifier:		public, private, protected
+
+----------------------------------------------------------------------------------------
+
+
+
+public set Age(value:number)
+    {
+        if(value > 0 && value < 100)
+		{
+				empObj.Age  = value;
+		}
+		else
+		{
+			
+		}
+    }
+
+
+
+
+
+	
+	
+	
+	

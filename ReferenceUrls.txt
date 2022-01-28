@@ -1,0 +1,13 @@
+1. Git
+~~~~~~~
+a. https://www.simplilearn.com/tutorials/git-tutorial/git-interview-questions
+b. https://www.edureka.co/blog/interview-questions/git-interview-questions/
+c. https://career.guru99.com/top-40-interview-questions-on-git/
+
+2. TypeScript
+~~~~~~~~~~~~~
+a. https://www.interviewbit.com/typescript-interview-questions/
+b. https://www.edureka.co/blog/interview-questions/typescript-interview-questions/
+3. https://www.javatpoint.com/typescript-interview-questions
+
+

@@ -1,0 +1,86 @@
+Task
+~~~~~	
+	1.   Create remote repository	
+	2.   Clone into local 
+	3.   Add the required files
+	4.   Commit to remote repository
+	5.   Check the log and status commands
+	
+
+
+Task
+~~~~~~~
+
+Group1:  (Abhijeet  to Komal)
+		--->  Name  :  EMSAppliction			
+		-->   (1st commit)
+					Files :
+							emps.component.ts
+							emps.component.html
+							
+		-->  (2nd commit)
+					Files:	
+								depts.component.ts
+								depts.component.html
+								depts.component.css
+
+Group-2:        
+			--->  Name  :  PMSAppliction			
+			-->   (1st commit)
+					Files :
+							product.component.ts
+							product.component.html
+							
+			-->  (2nd commit)
+					Files:	
+								category.component.ts
+								category.component.html
+								category.component.css
+
+
+G3:	
+			--->  Name  :  SMSAppliction			
+			-->   (1st commit)
+					Files :
+							student.component.ts
+							student.component.html
+							
+			-->  (2nd commit)
+					Files:	
+								course.component.ts
+								course.component.html
+								course.component.css
+								
+-----------------------------------------------------------------------------------------------
+
+Task-2
+~~~~~~
+1.  Create a new branch called ---  testing
+2.  Add some files into the working directory 
+
+		data.services.ts
+		login.component.html
+
+3.  Push the files into remote repository --- to the testing branch  
+-------------------------------------------
+4. Move to other branch
+5. Check the differences		----  git diff
+-----------------------------------------------
+6. Check the logs
+7.  Merge  the changes into master branch ---  git merge
+8.  Check the logs
+	 Push the files into remote repository --- to the master branch  
+------------------------------------------------------------
+9.  move to the  testing branch
+10.  Add some files into the working directory 		
+		register.component.html
+11.  Push the files into remote repository --- to the testing branch  
+12.  Merge the changes into master using pull request option in github
+-------------------------------------------------------------------------
+
+
+
+
+
+
+								

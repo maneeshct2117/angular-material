@@ -1,0 +1,29 @@
+import { filter, map, reduce } from 'rxjs/operators';
+import { Component } from '@angular/core';
+import { Observable, of, Subject, from } from 'rxjs';
+
+@Component({
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.css']
+})
+export class DemoComponent
+{
+  getData_click()
+  {
+    let observableObj:Observable<string> =  of("Hyderabad", "Pune", "Mumbai", "Chennai", "Goa");
+
+    let filteredObj  = observableObj.pipe(
+      filter(x => x.length >= 4 ),
+      map(x => x.toUpperCase()),
+    );
+
+    filteredObj.subscribe(x => console.log(x));
+
+  }
+}
+
+
+
+
+

@@ -1,0 +1,67 @@
+Pipes in Angular
+~~~~~~~~~~~~~
+
+--> Data transformation using pipes in Angular.
+--> Pipes never updates original data rather than its generate formatted outputs. 
+--> Templates  :  Presentation purpose
+
+
+email:string  =  "ScoTT@gMail.com";
+
+
+
+<div>
+		Email Id :  {{email  |  lowercase  }}			----		scott@gmail.com
+		Email Id :  {{email   }}								----		ScoTT@gMail.com
+</div>
+
+
+
+Original :						ScoTT@gMail.com
+Transformed :			scott@gmail.com
+---------------------------------------------------------------------------
+
+
+Built-in Pipes
+~~~~~~~~~~~
+
+lowercase
+uppercase
+titlecase
+currency
+date
+slice
+
+
+
+
+Usage of slice pipe
+~~~~~~~~~~~~~~~~
+	array | slice : startIndex  :  endIndex
+	
+	empsArray | slice  	---  not work
+	
+	empsArray | slice :  0 : 5			    (   0 	1 	2 	3 	4  )
+	empsArray | slice :  5 : 10				(   5 	6 	7 	8 	9  )
+	empsArray | slice :  10 : 15			(   10   11   12   13   14)
+	......
+	
+	
+	--------------------------------------------------------------------------------------------------
+	
+	
+	
+Tasks
+~~~~~
+1. Create Angular component to process users data using slice pipe. Loading the items based on the user interaction.
+
+		a.  Display users details in cards format. 
+		b.  By default only four records should display.		
+		c.  Add a button "Load More" that will keep on increase number of records.
+		
+				4		-->		8	-->	 12 --->  16  .................
+				
+		d.  Once it reach to end, make the button  invisible. 				
+				
+2.   How to use  number, percent  pipe in Angular?		
+	

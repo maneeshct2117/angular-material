@@ -1,0 +1,76 @@
+Angular Forms
+~~~~~~~~~~~~
+
+-->  ngModel  --- two way binding
+-->  Data Entry Forms 	---  input, textarea, select
+--> Performing validations in angular forms.	
+			
+	
+1. Template Driven Forms	(*.html)
+		-->  Template Variables	----	#p1,  #form1, #t1
+		-->  <span *ngIf="">Error Message</span>
+		-->  Angular provides properties:	invalid, dirty, 
+					--->  required, minLength, minLength, email, pattern
+		
+
+	-->	<form  #form1="ngForm">
+			</form>
+
+
+2. Model Driven Forms  (*.ts  +  *.html)	
+		--- Called as  Reactive Forms
+		--- ReactiveFormsModule  		---		@angular/forms
+		--- FormsModule  						---		@angular/forms
+		
+		Classes:		FormGroup, FormControl, Validators
+		
+		
+*.ts
+~~~~
+
+import { FormGroup, FormControl, Validators  } from '@angular/forms';
+
+public customerForm : FormGroup = new FormGroup({
+    fname :  new FormControl("", Validators.required),
+    ......
+});		
+		
+
+
+*.html
+~~~~~~
+		<form [formGroup]="customerForm" (submit)="submit_click()">
+  
+			  First Name:
+			  <input type="text" formControlName="fname"  />
+			  <span *ngIf="customerForm.controls.fname.invalid && customerForm.controls.fname.dirty" class="error">First Name is required</span>
+
+				......................
+      <button [disabled]="customerForm.invalid">Register</button>
+  </fieldset>
+</form>
+
+
+---------------------------
+
+
+
+Task
+~~~~~
+Create Angular components to create vehicle Registration Form
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--> implement the following validations using Angular forms concept --- model driven
+	
+
+1. Owner Name 		---     Required
+2. Contact Number  ----	Required , should contain 10 digits
+3. Owner Email   ---   Required, Email
+3. Vehicle Registration Number   ----  Should be proper format ---   (Eg:  TS10AB1234)
+4. Address  :     Required
+5. Model  :   10 characters
+6. Color :     Required 
+7. Year	:	2012 to 2022
+
+
+
+

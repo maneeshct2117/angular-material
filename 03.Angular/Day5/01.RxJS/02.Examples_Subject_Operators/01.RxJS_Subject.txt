@@ -1,0 +1,30 @@
+import { Component } from '@angular/core';
+import { Subject } from 'rxjs';
+
+@Component({
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.css']
+})
+export class DemoComponent
+{
+  getData_click()
+  {
+    let subjectObj = new Subject();
+
+    // First Subscriber
+    subjectObj.subscribe((result) => {
+          console.log("This is subscriber-1  :  " + result);
+    });
+
+    // Second Subscriber
+    subjectObj.subscribe((result) => {
+      console.log("This is subscriber-2  :  " + result);
+    });
+
+
+    subjectObj.next (  Math.random() );
+    subjectObj.next ( "Message from Subject" );
+  }
+}
+

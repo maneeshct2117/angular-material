@@ -1,0 +1,88 @@
+
+Working  Directory 	--->   Staging Area  / Cache Area  ---> 	Git Directory   --->  	Move to Central
+
+
+1. Working  Directory
+			>   git init
+			
+			Initialized empty Git repository in D:/gitdemo/.git/
+			
+			
+2, Staging Area  / Cache Area  
+			git add  filename
+			git add  -A				-----  for all files
+			git add  .					-----  for all files
+			
+			
+			git status
+			
+3. Git Directory
+			git commit   -m  "commit message"
+			
+		Note:	-m  refers  the message
+	
+4. Move to Central
+			git checkout -b main
+			git push  origin  main
+			
+--------------------------------------------------------------------------------------------------
+
+
+
+
+1.  git  init
+2.  git add  -A
+3.  
+
+	git remote add origin  "https://github.com/tnrao-trainer/TestRepo.git"
+	git remote add origin  "https://github.com/tnrao-trainer/WebApiValuesService.git"
+	git remote add origin  "https://github.com/tnrao-trainer/WebApiValues.git"
+ 
+4. git commit -m "commit message"
+
+5. git push -f  origin master
+
+
+			
+		
+
+
+
+
+
+
+
+
+Important Git commands
+~~~~~~~~~~~~~~~~~~~~~
+--> Open Git bash  -- command prompt for git
+
+1.  clear
+2.  git  init
+3.  git remote add origin  "https://github.com/tnrao-trainer/MyJan2021Repo.git"
+
+	git remote add origin  "https://github.com/tnrao-trainer/WebApiValuesService.git"
+	git remote add origin  "https://github.com/tnrao-trainer/WebApiValues.git"
+
+4.  git checkout -b main
+5.	 git pull origin main
+
+6. git  add  MyGitTest.txt
+	git add  -A
+	
+7. git status
+8. git commit -m "commit message"
+9. git push origin main
+10. git log
+
+
+
+
+Important Urls:
+~~~~~~~~~~~~~
+
+-->  https://www.youtube.com/watch?v=xuB1Id2Wxak
+-->  https://git-scm.com/downloads
+-->  https://github.com/
+
+ 

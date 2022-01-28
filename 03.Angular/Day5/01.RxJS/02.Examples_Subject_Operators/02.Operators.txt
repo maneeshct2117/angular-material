@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+import { from, Observable, of } from 'rxjs';
+import { filter } from 'rxjs/operators';
+
+@Component({
+  selector: 'app-demo',
+  templateUrl: './demo.component.html',
+  styleUrls: ['./demo.component.css']
+})
+export class DemoComponent
+{
+  getData_click()
+  {
+   // const source:Observable<number> = from([1, 2, 3, 4, 5]);
+    const source:Observable<number> = of(1, 2, 3, 4, 5);
+
+    // output: Generates all items
+    source.subscribe(val => console.log(`Result number: ${val}`));
+    console.log("----------------------------");
+
+
+    //filter out non-even numbers
+    const updatedSource:Observable<number> = source.pipe(filter(num => num % 2 === 0));
+    updatedSource.subscribe(val => console.log(`Result number: ${val}`));
+  }
+}
+

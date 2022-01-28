@@ -1,0 +1,81 @@
+CRUD Operations
+~~~~~~~~~~~~~~~
+ 
+
+
+-----------------------------------------------------------------------------------
+
+1. Create
+2.  Delete
+
+		-->		pop()	
+		-->		splice()				
+	
+		
+					let dno:number  = 10;					
+					let index  =  this.deptsArray.findIndex(   item =>  item.deptno == dno    );
+					this.deptsArray.splice(index,  1);
+					
+					
+					
+					
+					
+					// this.deptsArray.indexOf(dno);
+					
+--> Diff. between indexOf() and findIndex()					
+
+
+Get selected Dept Details
+~~~~~~~~~~~~~~~~~~~~~~~
+  selectDept_click(dno:number)
+  {
+    let index  =  this.deptsArray.findIndex(   item =>  item.deptno == dno    );
+    this.deptno =   this.deptsArray[index].deptno;
+    this.dname =   this.deptsArray[index].dname;
+    this.loc =   this.deptsArray[index].loc;
+  }
+  
+  selectDept_click(dno:number)
+  {
+		let deptObj =  this.deptsArray.find(   item =>  item.deptno == dno    );
+		this.deptno =   deptObj.deptno;
+		this.dname =   deptObj.dname;
+		this.loc 		=  deptObj.loc;
+  }
+  
+  
+  selectDept_click(deptObj:any)
+  {		
+		this.deptno =   deptObj.deptno;
+		this.dname =   deptObj.dname;
+		this.loc 		=  deptObj.loc;
+  }
+  
+  
+  
+
+
+
+
+let index  =  this.deptsArray.findIndex(   item =>  item.deptno == this.deptno    );
+this.deptsArray.splice(index,  1);
+
+
+
+
+
+Task
+~~~~
+
+1.  Create a student component to perform all CRUD operations. 
+
+		props:		pid, pname, price, qty, category
+
+
+	a. it should not allow duplicate records while perform "add" operation.
+	b. use images for delete and select operations. 	
+	
+ 
+
+
+

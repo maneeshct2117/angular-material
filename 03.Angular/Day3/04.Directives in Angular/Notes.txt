@@ -1,0 +1,86 @@
+		
+Directives in Angular
+~~~~~~~~~~~~~~~~
+
+Types of Directives
+		 Components directives
+		 Structural directives
+		 Attribute directives
+
+
+ Structural directives
+ ~~~~~~~~~~~~~~~~~
+	 Responsible for HTML layout.
+	Angular manipulates the DOM with structural directives.
+	Change the DOM by adding and removing DOM elements.
+	Eg:  *ngFor, *ngIf, etc…
+
+
+
+Attribute Directives
+~~~~~~~~~~~~~~~~~
+Change the appearance or behavior of an element.
+Attribute directives are used as attributes of elements (tags).
+Eg: ngModel , ngClass, routerLink
+
+
+
+
+
+Built-in directives:	
+	*ngFor
+	*ngIf
+	 ngSwitch
+	*ngSwitchCase
+	*ngSwitchDefault		
+	ngModel
+	ngClass
+	ngStyle
+		
+		
+		
+		
+Usage  ngStyle  and ngClass
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+	<tag  [ngStyle]="{ 'color' : 'red' }"> </tag>
+	
+	
+	<tag  [ngClass]="{ 'cssClassName' : boolean }"> </tag>
+	<tag  [ngClass]="{ 'bg1' : true }"> </tag>
+	<tag  [ngClass]="{ 'btn btn-primary' : true }"> </tag>
+	
+	
+	
+	item.course == 'Angular' ? 'Red' : 'Green'
+	
+
+
+		
+		
+		
+		
+Usage of  ngSwitch
+~~~~~~~~~~~~~~~~		
+
+<tag  [ngSwitch]=“variable">
+	<tag *ngSwitchCase=" value "> 	</tag>
+	<tag *ngSwitchCase=" value "> 	</tag>
+	……..
+	……..
+	<tag *ngSwitchDefault> </tag>
+</tag>
+
+		
+		
+		
+Example:
+
+-->  Display student details based on the selected mode
+
+		1. List Mode
+		2. Table Mode
+		3. Card Mode
+		
+		
+

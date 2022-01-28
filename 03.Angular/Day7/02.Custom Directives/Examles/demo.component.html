@@ -1,0 +1,17 @@
+
+<h3> Working with Custom Directives in Angular</h3>
+<hr/>
+<h3>Structural Custom Directives</h3>
+<button (click)="showHide_click()">Show or Hide Admin Content</button>
+
+<div>
+    <h1 *appIsAdmin="adminFlag">This content is visible to Administrators only</h1>
+</div>
+<hr/>
+
+<h3>Attribute Custom Directives</h3>
+<p appHighLighter> This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular.This paragraph text is highlighted using Custom Directives in Angular.</p>
+<hr/>
+<p appHighLighter="lightgreen"> This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular.This paragraph text is highlighted using Custom Directives in Angular.</p>
+<hr/>
+<p appHighLighter="pink"> This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular. This paragraph text is highlighted using Custom Directives in Angular.This paragraph text is highlighted using Custom Directives in Angular.</p>

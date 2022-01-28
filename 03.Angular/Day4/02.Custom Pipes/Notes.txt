@@ -1,0 +1,83 @@
+Custom Pipes in Angular
+~~~~~~~~~~~~~~~~~~~~~
+
+> Add new pipe using angular cli
+		>   ng  g  p  pipename
+		>   ng  g  p  gender
+		
+		
+1. Define custom pipe class		
+		- @Pipe()  decorator
+		- PipeTransform  interface
+					-  transform() method
+
+2. Register pipe in app module
+	- app.module.ts
+		- declarations
+		
+3. Use custom pipe in template
+		{{ variable |  pipename}}
+		
+
+
+Creating custom pipe:
+
+	input		---			string
+	output		---			string
+	
+	
+
+	
+	
+		input		----			output
+		------------------------------------------
+
+lowercase	String					String
+date 		date					String
+slice		Array					Array
+...
+gender		String					String
+
+		M					Male
+		F					Female
+
+filter		Array					Array								
+
+
+-----------------------------------------------------------------------------------
+
+What is Chaining Pipe?
+
+Applying Multiple pipes on single input	-----	Chaining Pipe
+
+
+
+	{{  obj1.gender | genderpipe | uppercase }}
+
+
+-------------------------------------------------------------------------------
+
+What is pure pipe and impure pipe?
+
+Pure Pipe:
+		By default, pipes are defined as pure so that Angular executes the pipe logic only when it recognize/detect the changes on the input value. 
+		
+Usage:	
+			@Pipe({
+				name :  "gender",
+				pure :  true	
+			})
+
+Impure:   	--> To execute the custom pipe after a change within a composite object (eg :  item inside the array, prop in a object)),  you need to define our pipe as impure.
+
+
+			@Pipe({
+				name :  "gender",
+				pure :  false	
+			})
+
+----------------------------------------------------------------------------------------------
+
+
+					
+

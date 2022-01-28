@@ -1,0 +1,13 @@
+<h1>Component Communication in Angular Application</h1>
+<hr/>
+
+<hr/>
+
+
+<app-filter-options (onLocationChanged)="updateLocation_parent($event)" ></app-filter-options>
+<hr/>
+
+<app-dept-list  [location]="selectedLoc"></app-dept-list>
+
+
+

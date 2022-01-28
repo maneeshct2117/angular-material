@@ -1,0 +1,182 @@
+Create Angular Service which uses HttpClient and calls a REST API
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Steps
+~~~~~
+1.  Create Angular Service that communicate with REST API 
+2.  Inject  Angular Service in Component
+3.  Perform CRUD operations through Angular Service (Eg:  DbService)
+
+
+Eg:
+
+export class DbService {
+	
+  dataArray:any[] =  [];
+  url:string  = "http://localhost:3000/depts";
+
+  constructor(private httpObj: HttpClient) {
+  }
+
+  getAllDepartments():Observable<any>
+  {
+    return this.httpObj.get(this.url);
+  }
+  
+}
+--------------------------------------------------------------------
+
+
+Processing Typed Objects in Http Calls
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+--->Getting strongly typed responses:	
+
+a)  without service
+	  this.httpObj.get<Dept[]>(this.url).subscribe( (response:Dept[]) =>{
+          this.deptsArray = response;
+     });
+	 
+	 
+b)  in service:
+	  getAllDepartments():Observable<Dept[]>
+	  {
+		return this.httpObj.get<Dept[]>(this.url);
+	  }
+	 
+	 
+	class Dept
+	{
+			deptno  : number = 0;
+			dname  : string  = "";
+			loc  : string  = "";
+	}
+	
+	
+	Hint:   We should create a class with same properites of server data in order to get strongly typed data. 
+	
+--------------------------------------------------------------------------------------------------------------------------	
+	
+	
+	
+	
+	
+	
+	
+ 	
+	
+  getEmps():Observable<any[]>
+  {
+	  this.url = "http://localhost:3000/emps";	
+      return this.httpObj.get<any[]>(this.url);
+  }
+    
+  getEmpsByJob(job:string):Observable<any[]>
+  {
+	  this.url = "http://localhost:3000/emps/getEmpsByJob/" + job;	
+      return this.httpObj.get<any[]>(this.url);
+  }
+  
+  
+  
+ Multiple ways 
+~~~~~~~~~~~   
+  a.  filter data after getting response	----   rxjs operators
+  
+  b.  send job details to server through url  (JSON-Server)
+		http://localhost:3000/depts?loc=Hyd
+		http://localhost:3000/emps?job=Manager
+		
+   c.  custom filter 		
+   
+   d.   separate method at server to hanlde this request
+   
+		http://localhost:3000/depts/getDeptsByLoc/Hyd
+		
+--------------------------------------------------------------------------------------------------		
+
+
+1.   May be server side implement required no. of methods		
+			a. method name
+			b. method type (get/post/put/delete)
+			
+2.   Process/filter the response at client side 
+
+		---- we need to add some more efforts to hanlde the response
+		---  invovle rxjs operators
+
+					
+
+					
+
+
+Customize the responses using RxJS Operators
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~		
+		
+1. how to return specific property from the response.
+		--- get only employee names   --- Array of Strings
+		--- get only dept names   --- Array of Strings
+		
+		
+	 return this.httpObj.get<any[]>(this.url).pipe(
+      map(res => {
+        return res.map(item => { return item.dname });
+    })
+    );
+		
+		
+2. how to return specific no. of properties from the response.		
+
+		---   get only  ename, job    ----   Array of Objects
+		
+		
+	 return this.httpObj.get<any[]>(this.url).pipe(
+      map(res => {
+        return res.map(item => {
+          return { 	dname: item.dname, loc : item.loc} });
+    })
+    );
+	
+	
+		
+
+3.  how to return specific no. of records based on the condition
+
+		---  get employee details based on the job  ---    Array of Objects
+
+		 return this.httpObj.get<any[]>(this.url).pipe(
+				map(res => {
+					return  res.filter(item => item.loc == 'Hyd');
+			})
+    );
+		
+--------------------------------------------------------------------------------------------------------------		
+		
+		
+		
+		
+
+		
+
+				
+					
+						
+Tasks
+~~~~~
+1.  CRUD Operations using Angular Services  + HttpClient
+
+2.  Add the following methods to data serverice that process employee data
+
+	a.  getEmployeeJobs()
+	b.  getEmployeesByJob()
+	c.  getEnamesAndJobs()
+	
+	
+	
+	
+	
+	
+	
+	
+	

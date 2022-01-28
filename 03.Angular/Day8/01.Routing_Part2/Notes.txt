@@ -1,0 +1,129 @@
+Advanced features in Angular Routing 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+Classes involved in routing:
+
+	Library	:		'@angular/router';
+	Classes:	
+						Routes
+						RouterModule.forRoot()
+						ActivatedRoute  ---  Service Class
+						Router --- Service Class
+						CanActivate
+						ActivatedRouteSnapshot
+						RouterStateSnapshot
+						Resolve
+	
+
+
+How to navigate through code? 
+How to do pogrammatic navigation?
+
+	ActivatedRoute  
+			---  Service class	
+			---  Used to read route parameters
+	
+	Router  
+			--- Service Class
+			--- used to implement pogrammatic navigation
+			
+				Eg:   this.router.navigate(['/Emps']);
+
+---------------------------------------------------------------------------------------------------
+
+
+Implement  Authentication in Angular Application
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1.  Create CanActivate Guard Service	:		AuthGuardService
+2.  Apply canActivate guard on the route to which you want to apply security 
+3.  Create Login component 
+			
+
+
+Facebook
+
+
+	1.  Request:			https://www.facebook.com		
+		Response:			show Login page
+		
+		
+	2.  Request :  		 	submit uid, pwd  to login page		 
+		 Response:			Valid User:		my account home page
+									Invalid User:	error message
+									
+	3.  Request:			https://www.facebook.com/photos
+		 Response:		show photos page	
+		 
+									SignOut / Logout
+									
+	4.  Request:			https://www.facebook.com/photos			
+		 Response:		show Login page		
+									
+									submit uid, pwd  to login page		
+									show photos page			
+									
+			
+
+
+
+
+Steps to Implement 
+~~~~~~~~~~~~~~
+						
+1.  CanActivate Guard
+
+	---     A service class that we need create
+	---		Executes before the selected route is process by angular
+	---		Executes logic that will verify whether the user is authorized or not
+			
+					-->  sessionStorage.getItem("AUTH_TOKEN")
+							-->  Valid User / Authenticated User --	proceed to process that route
+							-->  Invalid User  --		redirect to Login Component 
+											this.router.navigate(['/Login']);							
+	
+		
+				
+2.    	Apply AuthGuardService on the route to which you need security 
+
+			{ 	path :  "Emps",   
+				component: EmpsComponent,   
+				canActivate :  [AuthGuardService]  },
+
+
+3.   Login
+
+		a.   Verify the credentials  uid/pwd 	----		check with static/db/json/rest api/
+		b.    valid  user:
+		
+				--  create session token 
+						sessionStorage.setItem("AUTH_TOKEN",  this.uid);
+				--	redirect to  requested route /  default route
+								this.router.navigate(['/Emps']);
+				
+		c.    invalid  user:			
+				error message
+
+-------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+1. Applying Deactivate Guard on Routing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+1. CanActivate guard  on routes
+
+	---  Before component is processing 
+
+2. CanDeactivate guard  on routes
+
+	---  After component is processed
+	---  at the time of unloading
+	---  At the time of navigate to other route from the current one.
+	
+	

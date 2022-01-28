@@ -1,0 +1,38 @@
+Content Projection in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+What is Content Projection?
+
+-->  Content projection is a pattern in which you insert, or project, the content you want to use inside another component. 
+
+-->  For example, you could have a Card component that accepts content provided by another component.
+
+
+what is <ng-content> tag in angular?
+
+-->  <ng-content>  tag is act like a placeholder to present the content that we specified in the component tags. 
+
+--> We can use  multiple <ng-content> tags in a single component. We need identify using ids. 
+
+	
+
+Usage:
+
+ <ng-content></ng-content>
+ ........... 
+  <ng-content select="[footer]"></ng-content>
+---------------------------------------------------------------------------------------------------------------
+
+
+<button  id="button1" onclick="f1()">	
+	content  
+</button>
+
+<p> Text </p>
+	
+Usage in Parent:
+	 <app-dept-list  [location]="selectedLoc">
+				<p>   Departments Details - Located in {{selectedLoc}}    </p>
+				<p  footer>  Footer Content :  ** New Departments in {{selectedLoc}} Location</p>
+ </app-dept-list>
+-------------------------------------------------------------------------------------

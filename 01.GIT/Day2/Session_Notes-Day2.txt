@@ -1,0 +1,234 @@
+Merge  Vs  Rebase
+~~~~~~~~~~~~~~~
+
+git  merge  dev master
+git  rebase  dev master
+--------------------------------------------------------------------------------------
+
+[ Merge Demo ]
+
+1.  Create a separate folder (as working directory) for this task.
+
+
+git init
+
+touch m1.txt
+git add -A
+git commit -m "m1.txt  file is added under master branch"
+
+touch m2.txt
+git add -A
+git commit -m "m2.txt  file is added under master branch"
+
+git checkout -b dev
+
+touch d1.txt
+git add -A
+git commit -m "d1.txt  file is added under dev branch"
+
+touch d2.txt
+git add -A
+git commit -m "d2.txt  file is added under dev branch"
+git log
+
+git checkout master
+git log
+git merge dev master
+git log
+
+
+-------------------------------------------
+[Rebase Demo]
+
+1.  Create a separate folder (as working directory) for this task.
+
+
+git init
+
+touch m1.txt
+git add -A
+git commit -m "m1.txt  file is added under master branch"
+
+touch m2.txt
+git add -A
+git commit -m "m2.txt  file is added under master branch"
+
+git checkout -b dev
+
+touch d1.txt
+git add -A
+git commit -m "d1.txt  file is added under dev branch"
+
+touch d2.txt
+git add -A
+git commit -m "d2.txt  file is added under dev branch"
+git log
+
+git checkout master
+git log
+git rebase dev master
+git log
+
+-----------------------------------------------------------------------------------------------------
+
+Ignore Files
+~~~~~~~~~~~~
+
+
+A gitignore file specifies intentionally untracked files that Git should ignore. 
+
+
+GitIgnore Files :
+	https://github.com/github/gitignore
+
+
+
+Rules
+~~~~~
+# ignore all .a files
+*.a
+
+# but do track lib.a, even though you're ignoring .a files above
+!lib.a
+
+# only ignore the TODO file in the current directory, not subdir/TODO
+/TODO
+
+# ignore all files in any directory named build
+build/
+
+# ignore doc/notes.txt, but not doc/server/arch.txt
+doc/*.txt
+
+# ignore all .pdf files in the doc/ directory and any of its subdirectories
+doc/**/*.pdf
+
+-------------------------------------------------------------------------------
+
+
+
+
+
+Organizing project source code among multiple team members
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+1.  We create one  main branch /master branch    ----  refer production
+2.  Add Contributors 	(other team members)
+
+		[Available in repository settings]
+
+				
+				a.  Send invitation for contribution
+				
+						--->  Repository Settings
+						-->  Manage Access
+						-->  Click "Add People" button
+						--> Provide "Git User Id" 
+								-- Click "Select a collaborator above"
+				
+				b.  Apply/Create Branch rules 					
+									
+								--->   Go to Branches
+								--->   Branch protection Rules   -->  Add Rule
+								--->   Check the following options:
+										
+										Branch name pattern  :  master	
+										Check :    Require a pull request before merging
+										Check :  Include Administrators 
+										
+								--> "Save Changes"				
+								
+								
+Note:
+
+	--> Contributors can push the files into other branches (dev/feature/test).
+	--> Raise the PullRequest to merge the code into master branch. 
+	--> Owner of the repository will get pull request as notification
+				a. Review
+				b. Comment
+				c. Approve
+
+-->  Once the owner approve the pull request, then changes are reflected in master branch. 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+											
+
+
+
+Task
+~~~~
+
+1. Ask the other participants to access pull the data from the repository.	
+2. Try to push some files ----  expected :  some error
+
+3. Add that person as contributor
+4. Try to do step2  
+
+
+5. Create some branch rules ---  add restrictions. 
+6. Try to do step2  --- new file		----   expected :  access denied error
+
+7. Make a pull request from github
+8. Approve. 
+
+-------------------------------------------------------------------------------
+
+
+Git Stash
+~~~~~~~~
+
+
+Generally, the stash's meaning is "store something safely in a hidden place." 
+The sense in Git is also the same for stash; 
+Git temporarily saves your data safely without committing.
+Stashing takes the messy state of your working directory, and temporarily save it for further use. 
+
+
+
+$ git stash
+$ git stash save  “m1 updated”
+$ git stash list
+$ git stash apply
+$ git stash apply  stash@{1}
+$ git stash drop
+$ git stash drop  stash@{1}
+$ git stash clear
+
+
+----------------------------------------------------------------------------------------------
+
+Restore, Reset
+~~~~~~~~~~~~~~
+
+Restore:  It can be rollback the changes before commit/staging area. 
+			git  restore  m1.txt
+
+Reset:		It can be rollback the changes after commit
+
+>   git reset 0bd2ab731ee05efcc71bc6602ab82e6a4db03529
+
+$ git log --oneline
+		0bd2ab7 (HEAD -> master) m1 is updated with f2 function
+		fc0e302 m2.txt file is created
+		9964b17 function  f1  is added in m1.txt
+		1d8ed2e m1.txt file created
+
+$ git reset fc0e302
+
+$ git log --oneline
+	fc0e302 (HEAD -> master) m2.txt file is created
+	9964b17 function  f1  is added in m1.txt
+	1d8ed2e m1.txt file created
+
+
+-------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+

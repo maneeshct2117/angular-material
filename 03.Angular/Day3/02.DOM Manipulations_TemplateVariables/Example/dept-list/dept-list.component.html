@@ -1,0 +1,12 @@
+
+<app-dept-details *ngFor="let item of deptsArray"
+                  (onDeptRemoved)="deptRemove_parent($event)"
+                  [deptObj]="item"></app-dept-details>
+
+<div  style="clear:left;"></div>
+<hr/>
+<input type="button" value="Get Child Data" (click)="getChildData_click()"  />
+<hr/>
+
+<p #p1>DOM Accessing using Angular Components with ViewChild</p>
+

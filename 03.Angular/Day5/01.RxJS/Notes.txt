@@ -1,0 +1,145 @@
+Server in Communication in Angular  and RxJS
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+	--->  AJAX
+	--->	Asynchronous
+	
+	
+	
+	1.  Observe the response		----			Observable
+	2.  Handle the response		----			subscribe
+	
+				
+
+
+What is RxJS?
+				-->  It is javascript library for implementing Reactive Programming in JavaScript.				
+				--> It can be help us to develop ajax calls using observables.
+
+
+Points:	
+	   
+1.  AJAX Calls
+2.  Observables
+3.  RxJS
+4.  Angular HTTP Calls
+			---> HttpClient	---		Observables	(RxJS library)			
+			
+			httpObj.get(url).subscribe( success, error );
+
+
+Observables and subscribe
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Syntax:		
+		observableObj.subscribe(callback1, callback2, callback3);
+
+Usage:  
+
+	observableObj.subscribe(
+			  (result:any) =>  {    console.log(result);   },
+			  (error:any) =>  {    console.log(error);   }
+      );
+	  
+	  
+
+usage  subscribe()
+~~~~~~~~~~~~~~
+	--  This method is used to handle the results that comes from observable.
+	--- this method expecting following parameters:
+
+		a. success callback 			---		required
+		b. error callback 					---		optional
+		c. complete callback 			---		optional
+		
+
+
+--> wait/delay the process for 3 sec
+
+		setTimeout( callback, interval);
+ 
+ 
+            setTimeout(() =>  {
+              // code
+            }, 3000);  
+			
+----------------------------------------------------------------------------------------------
+
+Subject in RxJS
+~~~~~~~~~~~~~
+
+-->  In RxJS, subject is like an Observable.
+-->  It is special type of Observable that allows values/results to be multicasted to many subscribers. 
+-->  RxJS subject can talk with multiple observers (subscribers).
+
+
+
+import {Subject}  from 'rxjs';
+
+
+let  subjectObj = new Subject();
+
+subjectObj.subscribe((result) => {
+          console.log("This is subscriber-1  :  " + result);
+    });
+
+    subjectObj.subscribe((result) => {
+      console.log("This is subscriber-2  :  " + result);
+    });
+
+
+    subjectObj.next (  Math.random() );
+ 
+	
+Note:		Subject also suppors all the methods same as observable:
+					next(),  error(),  complete()
+-------------------------------------------------------------------------------
+
+Tasks
+~~~~~~
+1. Check the observable programs that we discussed .
+2.  What is JSON?  What is the role of JSON in AJAX?    
+3.  What are the rules to preapre JSON Data?  advnatages  of JSON over XML?
+4.   Observe the JSON data in the below urls:		
+		a.   https://reqres.in/api/users
+		b.   https://www.w3schools.com/angular/customers.php
+		
+-------------------------------------------------------------------------------------------------		
+
+RxJS Operators
+~~~~~~~~~~~~
+	1. Creational	:		of()
+	2. Filtering	:			map(), filter(), pipe()
+
+
+of()
+~~~~
+
+--> 	Converts the arguments to an observable sequence of values.
+
+		let observableObj =  of(1,2,3,4,5);
+
+		
+
+
+filter, reducer operator
+~~~~~~~~~~~~~~~~~~~
+
+let observableObj =  of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+    let filteredObj  = observableObj.pipe(
+      filter(x => x % 2 === 0),
+      reduce((acc, one) => acc + one, 0)
+    );
+
+    filteredObj.subscribe(x => console.log(x));
+
+
+-->  In the above example, pipe() method returns a new observable object with filtered conditions. 
+--> filter()  method -- returns the that satisfies the given condition. 	(Even numbers)
+--> reduce() --- perform sum operation on the filtered data. 
+--> filteredObj returns the sum of the even numbers. 
+
+
+			

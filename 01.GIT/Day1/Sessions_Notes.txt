@@ -1,0 +1,241 @@
+Introduction to GIT
+~~~~~~~~~~~~~~~~~~~
+
+--> Git is a distributed Version control System and source code management.
+--> Git was initially designed and developed by Linus Torvalds for Linux kernel development. 
+--> Git is a free software distributed under the terms of the GNU General Public License version 2. 
+
+
+Source Management Tools / Versioning  Tools:
+	1.  SVN
+	2.  TFS / Visual Source Safe
+	3.  GIT
+
+
+
+Installation Phase
+~~~~~~~~~~~~~~~
+1.  Git account --- Register  --- https://github.com/
+
+		----  organizing remote repositories
+
+
+2.  Install Git ---  Git bash / Software   ---   https://git-scm.com/download/win
+
+		----  organizing local repositories
+
+---------------------------------------------------------------------------------------------------
+
+
+
+Gitbash  (Command prompt specific to GIT)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>    cd  /d							(Change the drive)
+>    cd   MyGitTest			(Change the directory)
+>	  clear 							(to clear the screen)
+
+
+>		Go to the directory 
+>  	git init 			
+
+>      git remote add origin  "git_rep_url"
+>      git remote add origin  "https://github.com/tnrao-trainer/MyTestRepo1412.git" 
+
+>     git pull origin master		
+
+
+	//  Add the required files in the working directory
+
+>		git  add   app.component.ts			( specific file)
+		git  add  -A										(All Files)
+
+	
+> 		git   commit   -m "commit message"
+
+>      git push origin master
+	
+		--->	push the committed files to central repository 
+
+
+
+Updates/Add New Files
+~~~~~~~~~~~~~~~~~~~~
+	a. Modify  --  app.component.ts
+	b. Add New File  :  login.component.ts
+
+>   git status
+>   git  add  login.component.ts
+>   git status
+>   git  add  app.component.ts
+>   git status
+>   git commit -m "Commit some new files at 2:24 pm"
+>   git push origin master
+
+------------------------------------------------------------------------------------------------------
+
+Task
+~~~~~	
+	1.   Create remote repository	
+	2.   Clone into local 
+	3.   Add the required files
+	4.   Commit to remote repository
+	5.   Check the log and status commands
+	
+
+
+Task
+~~~~~~~
+
+Group1:  (Abhijeet  to Komal)
+		--->  Name  :  EMSAppliction			
+		-->   (1st commit)
+					Files :
+							emps.component.ts
+							emps.component.html
+							
+		-->  (2nd commit)
+					Files:	
+								depts.component.ts
+								depts.component.html
+								depts.component.css
+
+Group-2:     (Maneesh to Roshini )     
+
+			--->  Name  :  PMSAppliction			
+			-->   (1st commit)
+					Files :
+							product.component.ts
+							product.component.html
+							
+			-->  (2nd commit)
+					Files:	
+								category.component.ts
+								category.component.html
+								category.component.css
+
+
+G3:		(Roshini Rathod  to  Vishal)
+			--->  Name  :  SMSAppliction			
+			-->   (1st commit)
+					Files :
+							student.component.ts
+							student.component.html
+							
+			-->  (2nd commit)
+					Files:	
+								course.component.ts
+								course.component.html
+								course.component.css
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+Git Configuration
+~~~~~~~~~~~~~~~
+--> You can specify Git configuration settings with the git config command.
+--> We can get/set the user details using config command
+
+
+Set user name and user email
+~~~~~~~~~~~~~~~~~~~~~~~~~
+> git config --global user.name "John Doe" 
+> git config --global user.email  "johndoe@example.com"
+
+
+Get user name and user email
+~~~~~~~~~~~~~~~~~~~~~~~~~
+> git config --global user.name 
+> git config --global user.email 
+
+--------------------------------------------------------------------------------------------------------------
+
+
+
+Gitbash commands Overview
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Set-1  (Core commands to perform git activities)
+~~~~~~
+git  init
+git remote add origin  "git_rep_url"
+git pull origin master
+git  add  MyGitTest.txt
+git  add  -A
+git commit -m "commit message"
+git push origin master
+
+
+Set-2	(To know the meta data about git activities)
+~~~~~
+git status
+
+git log	
+		--- to show the chronological commit history for a repository.
+	
+git show  commitID
+git show  fc9ece8e819ad57a1a504c2ef6899ab1c36c749c
+
+git diff
+
+
+Set-3    (Working with Branch)
+~~~~~~~
+git  checkout  -b  dev						(create and shifting branch)
+git  checkout  dev								(shifting branch)
+git  diff  master  dev
+git merge dev
+
+-----------------------------------------------------------------------------------------------------------
+
+
+Merging changes of one branch into another branch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+>  git  checkout  dev	
+
+Add some files / modify the exists files
+
+> git  add data.services.ts
+> git  commit -m  "data service is added at 4:27 pm" 
+>  git push origin dev
+
+> git checkout master
+> git log
+> git merge dev
+> git log
+
+-----------------------------------------------------------------------------------------
+
+
+Differences between multiple branches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+>  git  checkout  dev	
+	Add some files / modify the exists files
+> git  add data.services.ts
+> git  commit -m  "data service is added at 4:27 pm" 
+
+
+> git checkout master
+> git diff  master dev
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+
+
+Git Restoring
+~~~~~~~~~~~~
+
+	Unstaging files
+		$ git restore --staged index.html
+		$ git restore --staged *.html
+		$ git restore --staged *.css
+	
+
+	// update the commit message 
+		$  git commit --amend -m "Hello File is added at 6:40 pm"
+	
+	//  tagging version details at the time of commit
+	$  git  tag -a v1.0 -m "my version 1.0"
+
+

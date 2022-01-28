@@ -1,0 +1,176 @@
+Evolution of Web Technologies
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	1. Client Side	
+		--  HTML, CSS 
+		--  JavaScript
+				--	Validations
+				--  DOM Operations	(Manipulations)
+		--  AJAX	(Asynchronous JavaScript And XML)			---   2005
+		--  3rd party libraries:
+				----   jQuery, Dojo, YUI		(2007)
+				----   Angular JS		(2009)
+				----   React JS		(2010)
+				----   Angular		(2012)
+	
+	2. Server Side
+	
+		--  ASP, JSP, PHP, 
+		--  ASP.NET, Python
+		--  Node + Express	
+		
+--------------------------------------------------------------------------------------------------
+
+
+
+
+Introduction to Angular
+~~~~~~~~~~~~~~~~~~~
+
+--> What is Angular?
+
+	---> Client  side framework
+	---> Open Source TypeScript based Web Development platform 
+	---> Development by Google --- 2009/2012
+	---> Latest Version :  13 
+
+
+--> Angular CLI
+
+	--> Project based development model
+	--> CLI ---	Command Line Interface	
+	--> Provides :		Set of commands to perform all kinds of operations
+	--> Create, Run, Deploy, Testing	--- Angular Application
+	--> npm  install  -g   @angular/cli	
+		
+	
+
+
+
+Environment Setup
+~~~~~~~~~~~~~~~~~~~~~
+		Install Node JS
+				https://nodejs.org/en/
+				
+		Install  typescript
+				npm    install  –g   typescript
+				
+		Install Angular CLI
+				npm   install   –g   @angular/cli
+			
+
+
+Create Angular Application
+~~~~~~~~~~~~~~~~~~~~~~
+		> ng  new  my-project
+		> cd my-project		
+		> ng     s    -o
+			http://localhost:4200
+
+
+
+
+
+Source Files
+~~~~~~~~~~
+
+1. node_modules
+2. src
+		a.  app
+		b.  assets	---  static files
+		c.  environments
+		
+		
+	/src/app
+		app.component.ts
+		app.component.html
+		app.component.css
+		app.component.spec.ts
+		app.module.ts
+		
+
+
+
+components in Angular
+~~~~~~~~~~~~~~~~~~~~
+
+<h1>
+<span>
+<title>
+<fieldset>,  <legend>
+<div>
+<footer>
+<emps>
+<login>
+<demo />
+
+
+
+------------------------------
+
+--> Every component is like a User defined tag.
+		<app-demo></app-demo>
+		<app-emps></app-emps>
+		<app-login></app-login>
+		....		
+		<app-emps></app-emps>
+		
+--> 	Show employee details
+
+-->   application logic			---			*.ts
+-->	ui logic ---  html, css		---			*.html	
+												---			*.css	
+
+
+
+Root Component
+~~~~~~~~~~~~~~
+	---> AppCompoent	
+	---> Start-up component
+	-->  Tag Name  :   <app-root></app-root>
+	--> We need to invoke other components inside the app component
+	
+			<app-user></app-user>
+			<app-demo></app-demo>
+			<app-login></app-login>
+	
+	
+Adding new components:
+
+	> ng  g  c login
+			
+			[login]
+					login.component.ts
+					login.component.html
+					login.component.css
+					login.component.spec.ts
+	
+			--- Register in app module. 
+	
+	
+Note:  All components should be registered in AppModule.
+
+		declarations :  [AppCompoent, LoginComponent, .....]
+
+
+
+
+
+
+
+@Component() decorator
+~~~~~~~~~~~~~~~~~~~~~~
+
+--> Provide metadata about component
+
+--> Most of the angular pre-defined classes available in '@angular/core' library.
+
+import { Component } from '@angular/core';		
+
+@Component({
+  selector: 'app-root',		// tag name
+  templateUrl: './app.component.html',		// presentation logic file
+  styleUrls: ['./app.component.css']		//	 css files urls
+})
+
+
+ 

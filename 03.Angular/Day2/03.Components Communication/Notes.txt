@@ -1,0 +1,104 @@
+Component communication in Angular
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+@Input()		----			Parent -->   Child
+@Output()	----			Child  --->    Parent
+
+
+
+
+<div>
+	<p></p>
+</div>
+
+
+div --- parent
+p  ---  child
+
+
+
+app.component.html
+
+	<app-depts></app-depts>
+	<app-login></app-login>
+	
+	
+	
+app 					----	parent
+detps, login 	----  child	
+
+
+
+<img   src="" />
+
+
+
+<app-details  ></app-details>
+<app-details  [productId]="213215"></app-details>
+
+
+<app-greeting  [uname]=" 'scott' " ></app-greeting>
+
+
+
+Greeting component
+	@Input()	
+	uname:string  = "";
+	
+	
+	
+	
+	
+	
+	
+	
+	app.component
+	
+		------>  <app-dept-list></app-dept-list>			
+						------------>    <app-dept-details></app-dept-details>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+<app-dept-details  [deptObj]="obj"></app-dept-details>
+
+<app-dept-details  
+			*ngFor="let item of deptsArray"
+			[deptObj]="item"></app-dept-details>
+
+
+	@Input()
+	deptObj:any  = {};
+	
+	
+	@Output()
+	onDeptRemove:EventEmitter 
+	
+	
+	
+	
+1. Create Product List component that accepts category as input parameter. Display the list of products belongs to the given category.
+
+<product-list   [category]=" 'Mobiles' "></product-list>	
+<product-list   [category]=" 'Electronics' "></product-list>	
+	
+	
+
+
+
+
+ 

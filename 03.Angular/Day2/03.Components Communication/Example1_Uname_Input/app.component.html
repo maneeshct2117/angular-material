@@ -1,0 +1,13 @@
+<h1>Component Communication in Angular Application</h1>
+<hr/>
+
+<app-demo [uname]="uname1"></app-demo>
+<app-demo [uname]="uname2"></app-demo>
+
+<hr/>
+
+<app-demo  *ngFor="let item of userNames"
+           [uname]="item">
+</app-demo>
+
+
