@@ -1,0 +1,3 @@
+<app-child *ngFor="let detail of details" 
+(onRemove)="remove_parent($event)"
+[detail]="detail"></app-child>

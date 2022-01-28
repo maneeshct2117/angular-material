@@ -1,0 +1,32 @@
+<table align="center" style="width: 50%">
+  <tr class="bg bg-info">
+    <th>Id</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Salary</th>
+    <th>Joining Date</th>
+
+    <th>Gender</th>
+  </tr>
+  <select [(ngModel)]="key">
+    <option value="name">Name</option>
+    <option value="deptName">Department</option>
+    <option value="salary">Salary</option>
+  </select>
+
+  <input type="text" [(ngModel)]="value"  >
+  <!-- <tr *ngFor="let item of employees | empfilter: strFilterProp:strFilterValue"> -->
+
+  <!-- <tr *ngFor="let item of employees | empfilter: key:value"> -->
+  <tr *ngFor="let item of employees | employeefiter: key:value">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name | titlecase }}</td>
+    <td>{{ item.deptName | uppercase }}</td>
+    <td>{{ item.salary | currency: "INR" }}</td>
+    <td>{{ item.joinDate | date: "dd/MM/yyyy" }}</td>
+    <td>{{ item.gender | gender }}</td>
+  </tr>
+  <tr *ngIf="employees.length == 0">
+    <td colspan="4" align="center">No Record Found</td>
+  </tr>
+</table>

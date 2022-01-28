@@ -1,0 +1,9 @@
+<fieldset>
+  <legend>Form</legend>
+  Country:
+  <select [(ngModel)]="selectedId">
+    <option *ngFor="let country of countries">{{ country }}</option>
+  </select>
+  <br />
+  <label>Selected Country is : {{ selectedId }}</label>
+</fieldset>

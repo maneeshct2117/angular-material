@@ -1,0 +1,16 @@
+<p>data-binding works!</p>
+
+<fieldset>
+    <legend>User Login</legend>
+    Username:<input type="text" [(ngModel)]="username">
+    <br>
+    Password:<input type="text" [(ngModel)]="password">
+    <br>
+    <button [disabled]="isButtonDisabled" (click)="loginClick()">Login</button>
+    <br>
+    <br>
+    <br>
+    <label>{{count}}</label>
+
+    <label>{{message}}</label>
+</fieldset>

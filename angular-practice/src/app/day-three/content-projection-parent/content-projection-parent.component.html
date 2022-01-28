@@ -1,0 +1,11 @@
+<select [(ngModel)]="selectedId">
+    <option *ngFor="let country of countries">{{ country }}</option>
+  </select>
+  <br />
+    
+  
+<app-content-projection-child>
+  <p header> Selected Country is : {{ selectedId }}</p>
+  <p footer>Footer</p>
+
+</app-content-projection-child>

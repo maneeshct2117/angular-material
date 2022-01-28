@@ -1,0 +1,37 @@
+<p>crud-operations works!</p>
+
+<fieldset>
+  <legend>User Info</legend>
+  Id: <input type="text" [(ngModel)]="id" />
+  <br />
+  Name: <input type="text" [(ngModel)]="name" />
+  <br />
+  <button (click)="add()">Add</button>
+  <button (click)="get()">Get</button>
+  <button (click)="update()">Update</button>
+</fieldset>
+<br>
+<br>
+
+<table border="1" width="30%" align="center">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let det of showDetail">
+    <td>{{ det.id }}</td>
+    <td>{{ det.name }}</td>
+    <td>
+        <a href="javascript:void(0)" (click)="select(det.id)">Edit</a>
+        <a href="javascript:void(0)" (click)="delete(det.id)">Delete</a>
+
+    </td>
+    
+
+  </tr>
+  <tr *ngIf="showDetail.length==0">
+      <td align="center" style="color: red;" colspan="3">No Data Found</td>
+  </tr>
+
+</table>
